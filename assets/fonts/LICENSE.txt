@@ -1,0 +1,5 @@
+Fonts in this directory are redistributed unmodified under the SIL Open Font License 1.1
+(https://openfontlicense.org), latin subsets as packaged by Fontsource:
+
+  bricolage-grotesque-var.woff2  Bricolage Grotesque  (c) The Bricolage Grotesque Project Authors
+  dm-sans-var.woff2              DM Sans              (c) The DM Sans Project Authors

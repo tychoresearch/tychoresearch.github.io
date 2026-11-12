@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0e141b">
+<title>Tycho Research · Open-source evaluation</title>
+<meta name="description" content="Tycho Research is an open-source evaluation organization. We build benchmarks for coding agents.">
+<script>try{var d=document.documentElement,q=new URLSearchParams(location.search),t=q.get('theme')||localStorage.getItem('pp-theme'),l=q.get('lang')||localStorage.getItem('pp-lang');if(t)d.dataset.theme=t;if(l)d.dataset.lang=l}catch(e){}</script>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/logo-180.png">
+<link rel="preload" href="assets/fonts/dm-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="in">
+    <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="34" height="34"><b>Tycho Research</b></a>
+    <nav>
+      <a href="polyperf/">PolyPerf</a>
+      <a href="https://github.com/tychoresearch">GitHub</a>
+    </nav>
+    <div class="tools">
+      <button class="btn" id="langbtn" type="button"><span class="en">中文</span><span class="zh">EN</span></button>
+      <button class="btn sq" id="themebtn" type="button" aria-label="toggle light / dark"></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Tycho Research</h1>
+    <p class="lede"><span class="en">An open-source evaluation organization. We build benchmarks for coding agents.</span><span class="zh">开源评测机构，为编程智能体构建基准。</span></p>
+    <!-- the crossbar of the logo's T, drawn full width -->
+    <div class="band" aria-hidden="true">
+      <i class="tri"></i>
+      <svg class="rule" viewBox="0 0 1300 44" preserveAspectRatio="none">
+        <rect width="1300" height="44"/>
+        <path class="q" d="M75 0V10M125 0V10M175 0V10M225 0V10M275 0V10M325 0V10M375 0V10M425 0V10M475 0V10M525 0V10M575 0V10M625 0V10M675 0V10M725 0V10M775 0V10M825 0V10M875 0V10M925 0V10M975 0V10M1025 0V10M1075 0V10M1125 0V10M1175 0V10M1225 0V10"/>
+        <path d="M100 0V17M200 0V17M300 0V17M400 0V17M500 0V17M600 0V17M700 0V17M800 0V17M900 0V17M1000 0V17M1100 0V17M1200 0V17"/>
+        <path d="M50 0V27M150 0V27M250 0V27M350 0V27M450 0V27M550 0V27M650 0V27M750 0V27M850 0V27M950 0V27M1050 0V27M1150 0V27M1250 0V27"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="row" id="polyperf">
+    <div class="row-h">
+      <img src="assets/polyperf.svg" alt="" width="48" height="48">
+      <h2><span class="en">Introducing PolyPerf</span><span class="zh">PolyPerf 简介</span></h2>
+      <span class="chip"><span class="en">Preview</span><span class="zh">预览版</span></span>
+    </div>
+    <div class="intro">
+      <p class="bench-q"><span class="en">Can a coding agent make a real program faster without changing what it does?</span><span class="zh">编程智能体能否在不改变行为的前提下，让真实程序更快？</span></p>
+      <p class="intro-p"><span class="en">PolyPerf is a CPU performance benchmark for coding agents. Each task starts from a real open-source repository just before an upstream performance fix. The agent gets the repository and a description of the slow behaviour, and submits a patch.</span><span class="zh">PolyPerf 是面向编程智能体的 CPU 性能基准。每道题从一个真实的开源仓库出发，停在上游性能修复之前。智能体拿到仓库和慢行为的描述，提交一个补丁。</span></p>
+      <dl class="spec">
+        <div><dt><span class="en">Tasks</span><span class="zh">题目</span></dt><dd><span class="en">44, each taken from a real upstream performance commit</span><span class="zh">44 道，每道取自一次真实的上游性能提交</span></dd></div>
+        <div><dt><span class="en">Languages</span><span class="zh">语言</span></dt><dd>C, C++, C#, Go, Java, JavaScript, Kotlin, Rust, TypeScript</dd></div>
+        <div><dt><span class="en">Score</span><span class="zh">计分</span></dt><dd><span class="en">Speedup of the agent’s patch relative to the human fix, timed on hidden workloads</span><span class="zh">智能体补丁相对人类修复的提速，在隐藏工作负载上计时</span></dd></div>
+      </dl>
+      <p class="small muted" style="margin:14px 0 0"><span class="en">Preview release: the task set and scores may still change before the paper is out.</span><span class="zh">预览版：论文发表前，题目和分数仍可能调整。</span></p>
+      <div class="cta"><a class="primary" href="polyperf/"><span class="en">Open PolyPerf</span><span class="zh">打开 PolyPerf</span></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="in">
+    <span class="brandmini"><img src="assets/logo.svg" alt="" width="22" height="22">© 2026 Tycho Research</span>
+    <span><span class="en">Interested in collaborating? Email</span><span class="zh">对合作有兴趣，请联系</span> <a href="mailto:tychoresearchai@gmail.com">tychoresearchai@gmail.com</a></span>
+    <nav><a href="polyperf/">PolyPerf</a><a href="https://github.com/tychoresearch">GitHub</a></nav>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

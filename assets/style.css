@@ -1,0 +1,130 @@
+/* Tycho Research home page.
+   Same family as the PolyPerf site: its colour tokens, its three faces, light and dark as full themes.
+   The one thing this page adds is the band under the name: the crossbar of the logo's T, drawn full width.
+   Fonts are self-hosted (assets/fonts, SIL OFL 1.1): the page makes no third-party request. */
+@font-face{font-family:"Bricolage Grotesque";src:url("fonts/bricolage-grotesque-var.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Sans";src:url("fonts/dm-sans-var.woff2") format("woff2");font-weight:100 1000;font-style:normal;font-display:swap}
+
+/* ---------- tokens ---------- */
+:root{
+  color-scheme: light;
+  --bg:#f5f6f8; --card-2:#f5f7fa;
+  --border:#dfe5ec; --border-strong:#c6d0db;
+  --text:#0f2236; --text-2:#465769; --text-3:#697a8d;
+  --accent:#a55c00; --accent-fill:#f2a321; --accent-soft:rgba(242,163,33,.15); --on-accent:#1d1403;
+  --ink:#152536;        /* the band: the logo's navy */
+  --mark:#e08a00;       /* the amber index */
+  --glow:rgba(242,163,33,.14);
+  --display:"Bricolage Grotesque","DM Sans","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --bg:#0e141b; --card-2:#1c2937;
+    --border:#263445; --border-strong:#34475c;
+    --text:#e8eef5; --text-2:#a7b4c3; --text-3:#7f8ea0;
+    --accent:#f5a524; --accent-fill:#f7ad33; --accent-soft:rgba(245,165,36,.13); --on-accent:#14100a;
+    --ink:#e9e2d3; --mark:#f5a524;
+    --glow:rgba(245,165,36,.09);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --bg:#0e141b; --card-2:#1c2937;
+  --border:#263445; --border-strong:#34475c;
+  --text:#e8eef5; --text-2:#a7b4c3; --text-3:#7f8ea0;
+  --accent:#f5a524; --accent-fill:#f7ad33; --accent-soft:rgba(245,165,36,.13); --on-accent:#14100a;
+  --ink:#e9e2d3; --mark:#f5a524;
+  --glow:rgba(245,165,36,.09);
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+html[data-lang="en"] .zh, html[data-lang="zh"] .en{display:none !important}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;overflow-x:clip;color:var(--text);
+  font:16px/1.62 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background:radial-gradient(1100px 520px at 86% -140px,var(--glow),transparent 64%) no-repeat,var(--bg)}
+::selection{background:color-mix(in srgb,var(--accent-fill) 36%,transparent)}
+a{color:var(--accent);text-decoration:none;text-underline-offset:3px}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent-fill);outline-offset:2px;border-radius:4px}
+img{max-width:100%}
+p{margin:0;text-wrap:pretty}
+.ico{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* ---------- header (matches the PolyPerf header so the two sites line up) ---------- */
+header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--border)}
+.nav .in{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:stretch;gap:30px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--text);text-decoration:none !important}
+.brand img{width:34px;height:34px;display:block;border-radius:8px}
+.brand b{font:700 19px/1 var(--display);letter-spacing:-.02em;white-space:nowrap}
+.nav nav{display:flex;gap:2px;align-items:stretch}
+.nav nav a{display:flex;align-items:center;padding:0 11px;color:var(--text-2);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:color .15s}
+.nav nav a:hover{color:var(--text)}
+.nav .tools{margin-left:auto;display:flex;align-items:center;gap:8px}
+.btn{display:inline-grid;place-items:center;height:32px;min-width:34px;padding:0 11px;font:600 12.5px/1 var(--sans);border:1px solid var(--border-strong);background:transparent;color:var(--text-2);border-radius:9px;cursor:pointer;transition:color .15s,border-color .15s,background .15s}
+.btn:hover{color:var(--text);border-color:var(--text-3);background:var(--card-2)}
+.btn.sq{padding:0}
+@media (max-width:619px){
+  .nav .in{padding:0 16px;gap:12px;min-height:58px}
+  .nav nav{display:none}   /* a short page: the footer repeats these links */
+}
+
+/* ---------- layout ---------- */
+main{flex:1 0 auto;width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+@media (max-width:619px){main{padding:0 16px}}
+
+/* ---------- hero: the name, one line, the band ---------- */
+.hero{padding:clamp(44px,7vw,100px) 0 0}
+.hero h1{font:700 clamp(40px,12.2vw,124px)/.95 var(--display);letter-spacing:-.04em;margin:0}
+.lede{font-size:clamp(17px,1.75vw,21.5px);line-height:1.5;color:var(--text-2);max-width:31em;margin-top:clamp(18px,2.2vw,28px)}
+.band{position:relative;margin-top:clamp(36px,5vw,68px);padding-top:18px}
+.tri{position:absolute;top:0;left:calc(10.5 / 13 * 100%);width:18px;height:14px;margin-left:-9px;background:var(--mark);clip-path:polygon(0 0,100% 0,50% 100%)}
+.rule{display:block;width:100%;height:44px}
+.rule rect{fill:var(--ink)}
+.rule path{fill:none;stroke:var(--bg);stroke-width:1.6px;vector-effect:non-scaling-stroke}
+@media (max-width:619px){
+  .band{padding-top:16px}
+  .tri{width:16px;height:12px;margin-left:-8px}
+  .rule{height:34px} .rule .q{display:none}
+}
+
+/* ---------- sections: the heading sits in the left column and labels the row ---------- */
+.row{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:22px 40px;align-items:start;padding:clamp(40px,5.6vw,76px) 0}
+.row-h{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.row-h img{display:block;width:48px;height:48px}
+.row h2{font:700 clamp(25px,3vw,36px)/1.08 var(--display);letter-spacing:-.03em;margin:0;text-wrap:balance}
+html[data-lang="zh"] .row h2{letter-spacing:-.005em}
+.chip{font:600 12px/1 var(--sans);color:var(--accent);background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 34%,transparent);border-radius:999px;padding:5px 10px}
+@media (max-width:859px){.row{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- PolyPerf intro ---------- */
+.bench-q{font:600 clamp(22px,2.6vw,30px)/1.2 var(--display);letter-spacing:-.022em;max-width:22em;text-wrap:balance}
+html[data-lang="zh"] .bench-q{letter-spacing:0;line-height:1.4}
+.intro-p{margin-top:16px;max-width:38em;font-size:17px;line-height:1.62;color:var(--text-2)}
+.spec{margin:26px 0 0;border-top:1px solid var(--border)}
+.spec div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--border);font-size:15px;line-height:1.5}
+.spec dt{color:var(--text-3)}
+.spec dd{margin:0}
+@media (max-width:619px){
+  .spec div{grid-template-columns:minmax(0,1fr);gap:1px}
+  .spec dt{font-size:13px}
+}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.cta a{display:inline-flex;align-items:center;padding:11px 18px;border-radius:11px;border:1px solid var(--border-strong);color:var(--text);font-weight:650;font-size:15px;text-decoration:none;transition:filter .15s,border-color .15s,background .15s,transform .15s}
+.cta a:hover{border-color:var(--text-3);background:var(--card-2)}
+.cta a.primary{background:var(--accent-fill);color:var(--on-accent);border-color:transparent}
+.cta a.primary:hover{filter:brightness(1.06);background:var(--accent-fill);border-color:transparent}
+.cta a:active{transform:translateY(1px)}
+
+/* ---------- footer: the one line about working together lives here ---------- */
+footer{border-top:1px solid var(--border);color:var(--text-2);font-size:14px}
+footer .in{max-width:1200px;margin:0 auto;padding:22px 24px 36px;display:flex;gap:10px 24px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+footer .brandmini{display:flex;align-items:center;gap:9px;font:700 14.5px var(--display);color:var(--text-2)}
+footer img{width:22px;height:22px;border-radius:5px}
+footer nav{display:flex;gap:20px}
+footer nav a{color:var(--text-2);font-weight:600}
+@media (max-width:619px){footer .in{padding:20px 16px 32px}}
